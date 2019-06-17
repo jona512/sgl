@@ -2,7 +2,6 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <math.h>
-// #include <stdio.h>
 
 #include "sgl.h"
 
@@ -18,7 +17,6 @@ int sgl_mouse_left = 0;
 int sgl_mouse_right = 1;
 
 void sgl_inter_empty_func() {
-  // printf("debug\n");
 }
 
 int sgl_intern_mouse_left_state = 0;  // 1 = down // 0 = up
@@ -136,9 +134,6 @@ void sgl_set_color(float r, float g, float b) {
 
 void sgl_draw_circle(float x, float y, float r) {
   glBegin(GL_POLYGON);
-  // for (float i = 0; i < M_PI * 2; i += 0.02) {
-  // for (float i = 0; i < 3.14 * 2; i += 0.02) {
-  // for (float i = 0; i < 3.14 * 2; i += 0.1) {
   for (float i = 0; i < 3.14 * 2; i += 3/(r+0.6)+0.01) {
     glVertex2f(x + r * sin(i), y + r * cos(i));
   }
@@ -162,14 +157,13 @@ void sgl_draw_line(int lenght, int *data) {
   glEnd();
 }
 
-// void sgl_draw_heart(float x, float y, float r) {
-//   glBegin(GL_POLYGON);
-//   float hx, hy;
-//   // for (float i = 0; i < M_PI * 2; i += 0.02) {
-//   for (float i = 0; i < 3.142 * 2; i += 0.02) {
-//     hx = 16 * pow(sin(i), 3);
-//     hy = 13 * cos(i) - 5 * cos(2 * i) - 2 * cos(3 * i) - cos(4 * i);
-//     glVertex2f(x + r * hx, y + r * hy);
-//   }
-//   glEnd();
-// }
+void sgl_draw_heart(float x, float y, float r) {
+  glBegin(GL_POLYGON);
+  float hx, hy;
+  for (float i = 0; i < 3.142 * 2; i += 0.02) {
+    hx = 16 * pow(sin(i), 3);
+    hy = 13 * cos(i) - 5 * cos(2 * i) - 2 * cos(3 * i) - cos(4 * i);
+    glVertex2f(x + r * hx, y + r * hy);
+  }
+  glEnd();
+}
