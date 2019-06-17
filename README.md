@@ -1,1 +1,1 @@
-# sgl
+# glut demo
